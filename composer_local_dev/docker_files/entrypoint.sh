@@ -69,7 +69,7 @@ prepare_running_airflow_as_host_user() {
   sudo cat >/usr/local/bin/run <<EOF
 #!/bin/sh
 
-sudo -E -u ${COMPOSER_HOST_USER_NAME} env ENV=${ENV} PATH=${PATH} "\$@"
+sudo -E -u ${COMPOSER_HOST_USER_NAME} env ENV=${ENV} PYTHONPATH=${PYTHONPATH} PATH=${PATH} "\$@"
 EOF
 
   echo "Running Airflow as user ${COMPOSER_HOST_USER_NAME}(${COMPOSER_HOST_USER_ID})"
